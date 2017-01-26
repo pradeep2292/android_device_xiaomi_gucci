@@ -1,0 +1,35 @@
+FORCE_32_BIT := true
+
+include device/cyanogen/msm8916-common/BoardConfigCommon.mk
+DEVICE_PATH := device/xiaomi/gucci
+
+# Kernel
+BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_PATH)/mkbootimg.mk
+TARGET_KERNEL_SOURCE := kernel/xiaomi/gucci
+TARGET_KERNEL_CONFIG := gucci_defconfig
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
+
+# CPU
+TARGET_CPU_CORTEX_A53 := true
+
+# Bluetooth
+#BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
+
+
+# Recovery
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/fstab.qcom
+
+
+# inherit from the proprietary version
+#-include vendor/xiaomi/gucci/BoardConfigVendor.mk
+
+# Partitions
+BOARD_FLASH_BLOCK_SIZE := 131072
+BOARD_BOOTIMAGE_PARTITION_SIZE := 33554432
+BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_CACHEIMAGE_PARTITION_SIZE := 402653184
+BOARD_PERSISTIMAGE_PARTITION_SIZE := 33554432
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 33554432
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1610612736
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 13441104896
+
